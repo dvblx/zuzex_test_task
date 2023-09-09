@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-user-and-house.yaml
+  - include:
+      file: db/changelog/changeset/rename-table-user.yaml
+  - include:
+      file: db/changelog/changeset/add_login_and_isadmin.yaml

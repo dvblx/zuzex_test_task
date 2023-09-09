@@ -1,0 +1,72 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_user_and_house
+      author: Artem Melnikov
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lastname
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: patronymic
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: age
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: house
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: street
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: house_number
+                  type: varchar(15)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: apartment_number
+                  type: int
+                  constraints:
+                    nullable: true
+              - column:
+                  name: householder_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: user_house_fk
+                    referencedTableName: user
+                    referencedColumnNames: id

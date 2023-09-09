@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: add_login_and_isadmin
+      author: Artem Melnikov
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: login
+                  type: varchar(70)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: is_admin
+                  type: boolean
+                  constraints:
+                    nullable: false
